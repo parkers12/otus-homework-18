@@ -1,17 +1,22 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 
 module.exports = {
   mode: "development",
   entry: path.resolve(__dirname, "./src/index.js"),
   output: {
-    filename: "js/bundle.js",
+    filename: "./js/bundle.js",
     path: path.resolve(__dirname, "public"),
+    assetModuleFilename: "./fonts/Montserrat/[name][ext]",
   },
   resolve: {
     extensions: [".js", ".jsx"],
+  },
+  stats: {
+    errorDetails: true,
   },
   module: {
     rules: [
@@ -54,6 +59,10 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(ttf|otf|eot|woff2?)(\?.+)?$/,
+        loader: "file-loader",
+      },
     ],
   },
   plugins: [
@@ -63,6 +72,12 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: "./styles/styles.css",
+    }),
+    new CopyPlugin({
+      patterns: [{
+          from: "./src/fonts",
+          to: "fonts",
+      }],
     }),
     new ESLintPlugin(),
   ],
