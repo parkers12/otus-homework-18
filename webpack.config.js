@@ -1,31 +1,69 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 module.exports = {
-    entry: './src/index.js',
-    output: {
-      path: '/dist',
-      filename: 'bundle.js'
-    },
-    module: {
-        rules: [
+  mode: "development",
+  entry: path.resolve(__dirname, "./src/index.js"),
+  output: {
+    filename: "js/bundle.js",
+    path: path.resolve(__dirname, "public"),
+  },
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: [
           {
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            use: ['babel-loader', 'eslint-loader'],
-          },
-          {
-            test: /\.(scss|css)$/,
-            use: ['style-loader', 'css-loader', 'sass-loader'],
+            loader: "babel-loader",
           },
         ],
-    },
-    resolve: {
-        extensions: ['.js', '.jsx'],
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './dist/index.html',
-            filename: './index.html',
-        })
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: { sourceMap: true },
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              sourceMap: true,
+              postcssOptions: {
+                plugins: [
+                  [
+                    "postcss-preset-env",
+                    "autoprefixer",
+                    "cssmqpacker",
+                    "cssnano",
+                  ],
+                ],
+              },
+            },
+          },
+          {
+            loader: "sass-loader",
+            options: { sourceMap: true },
+          },
+        ],
+      },
     ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+      filename: "./index.html",
+    }),
+    new MiniCssExtractPlugin({
+      filename: "./styles/styles.css",
+    }),
+    new ESLintPlugin(),
+  ],
 };
