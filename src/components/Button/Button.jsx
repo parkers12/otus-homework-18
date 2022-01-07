@@ -1,6 +1,31 @@
-import React from 'react';
+import React from "react";
+import PropTypes from "prop-types";
+// import mixCn from "classnames";
+// import * as styles from "./button.module.scss";
+// import * as styles from "./button.module.css";
 
-const Button = ({ label, ...props }) =>
-    <button {...props}>{label}</button>;
+import "./button.scss";
 
-export default Button;
+// const classNameByView = {
+//     primary: '',
+//     secondary: styles.button_secondary
+// };
+
+export const Button = ({ primary, label, ...args }) => {
+  return (
+    <button type="button" {...args}>
+      {label}
+    </button>
+  );
+};
+
+Button.propTypes = {
+  primary: PropTypes.bool,
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+};
+
+Button.defaultProps = {
+  primary: false,
+  onClick: undefined,
+};

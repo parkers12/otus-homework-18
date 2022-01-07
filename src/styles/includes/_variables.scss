@@ -1,0 +1,37 @@
+/* Variables */
+
+/* Font */
+$path-fonts: "../fonts";
+$font-family: "Roboto";
+$fallback-font: "sans-serif";
+
+/* Font size */
+$main-font-size: 1.6rem;
+$small-font-size: 1.4rem;
+
+/* Font style */
+$main-line-height: 2.4rem;
+$main-font-weight: 600;
+$letter-spacing: 0.1px;
+
+/* Colors */
+$base-light-text: #ffffff;
+$base-dark-text: #25282b;
+
+$brand-dark-back: #0e65b7;
+$brand-dark-text: #014898;
+
+$accent-dark-back: #e64920;
+$accent-dark-text: #a02304;
+
+$neutral-dark-back: #cacccf;
+
+/* Constants */
+$gap: 10px;
+$radius: 8px;
+
+/* Control height */
+$controlHeight: 3.8rem;
+
+/* Transition */
+$transition: all 0.2s;
