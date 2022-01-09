@@ -3,12 +3,15 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  mode: "development",
-  entry: path.resolve(__dirname, "./src/index.js"),
+  entry: {
+    main: path.resolve(__dirname, "./src/index.js"),
+  },
   output: {
     filename: "./js/bundle.js",
+    clean: true,
     path: path.resolve(__dirname, "public"),
     assetModuleFilename: "./fonts/Montserrat/[name][ext]",
   },
@@ -35,7 +38,11 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
-            options: { sourceMap: true },
+            options: {
+              sourceMap: true,
+              importLoaders: 1,
+              modules: true,
+            },
           },
           {
             loader: "postcss-loader",
@@ -60,8 +67,12 @@ module.exports = {
         ],
       },
       {
-        test: /\.(ttf|otf|eot|woff2?)(\?.+)?$/,
-        loader: "file-loader",
+        test: /\.(png|jpe?g|gif)$/i,
+        type: "asset/resource",
+      },
+      {
+        test: /\.(ttf|otf|eot|woff|woff2?)(\?.+)?$/,
+        type: "asset/resource",
       },
     ],
   },
@@ -74,11 +85,18 @@ module.exports = {
       filename: "./styles/styles.css",
     }),
     new CopyPlugin({
-      patterns: [{
+      patterns: [
+        {
           from: "./src/fonts",
-          to: "fonts",
-      }],
+          to: "./public/fonts",
+        },
+        {
+          from: "./src/images",
+          to: "./public/images",
+        },
+      ],
     }),
     new ESLintPlugin(),
+    new CleanWebpackPlugin(),
   ],
 };

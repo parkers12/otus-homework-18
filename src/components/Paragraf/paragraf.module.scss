@@ -1,0 +1,27 @@
+@import "../../styles/styles";
+
+.text {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+
+  & + & {
+    margin-top: 0.6rem;
+  }
+
+  &_discharged {
+    line-height: $main-line-height + 0.6rem;
+
+    & + & {
+      margin-top: 1rem;
+    }
+  }
+
+  &_compressed {
+    line-height: $main-line-height - 0.4rem;
+    
+    & + & {
+      margin-top: 0.4rem;
+    }
+  }
+}

@@ -1,31 +1,34 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import mixCn from "classnames";
-// import * as styles from "./button.module.scss";
-// import * as styles from "./button.module.css";
+import mixCn from "classnames";
+import styles from "./button.module.scss";
 
-import "./button.scss";
+const classNameByView = {
+  primary: styles.button_primary,
+  secondary: styles.button_secondary,
+  text: styles.button_text,
+};
 
-// const classNameByView = {
-//     primary: '',
-//     secondary: styles.button_secondary
-// };
-
-export const Button = ({ primary, label, ...args }) => {
+const Button = ({ view, children, className, ...args }) => {
+  const cn = mixCn(styles.button, className, classNameByView[view]);
   return (
-    <button type="button" {...args}>
-      {label}
+    <button type="button" className={cn} {...args}>
+      {children}
     </button>
   );
 };
 
 Button.propTypes = {
-  primary: PropTypes.bool,
-  label: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
+  view: PropTypes.oneOf(["primary", "secondary", "text"]),
   onClick: PropTypes.func,
+  className: PropTypes.string,
 };
 
 Button.defaultProps = {
-  primary: false,
   onClick: undefined,
+  view: "primary",
+  className: undefined,
 };
+
+export default Button;

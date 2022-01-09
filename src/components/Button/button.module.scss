@@ -1,5 +1,3 @@
-// @use "../../styles/styles";
-// @use '../../styles/includes/_variables.scss' as *;
 @import "../../styles/styles";
 
 .button {
@@ -29,8 +27,12 @@
     text-decoration: none;
   }
 
+  & + & {
+    margin-left: 2rem;
+  }
+
   // Button default type
-  &:not(&_secondary) {
+  &_primary {
     background-color: $brand-dark-back;
     border-radius: $radius;
     font-size: $small-font-size;
@@ -52,6 +54,7 @@
 
     &:disabled {
       background: $neutral-dark-back;
+      cursor: default;
     }
   }
 
@@ -82,24 +85,34 @@
     &:disabled {
       border-color: $neutral-dark-back;
       color: $neutral-dark-back;
+      cursor: default;
     }
   }
-}
 
-.button {
-  &:not(.button_secondary) {
-    height: $controlHeight;
-    min-width: $controlHeight;
-    line-height: $controlHeight;
-  }
+  &_text {
+    background-color: transparent;
+    border-radius: 0;
+    font-size: $small-font-size;
+    font-weight: $main-font-weight;
+    color: $brand-dark-back;
+    padding: 0;
+    height: auto;
+    min-width: auto;
+    line-height: auto;
+    border: 0;
 
-  &_secondary {
-    height: $controlHeight;
-    min-width: $controlHeight;
-    line-height: $controlHeight;
-  }
+    &:hover,
+    &:focus {
+      color: lighten($brand-dark-back, 10%);
+    }
 
-  & + & {
-    margin-left: 2rem;
+    &:active {
+      color: lighten($brand-dark-back, 3%);
+    }
+
+    &:disabled {
+      color: $neutral-dark-back;
+      cursor: default;
+    }
   }
 }

@@ -1,0 +1,67 @@
+@import "../../styles/styles";
+
+.userpic {
+    border: 0;
+    width: 10rem;
+    height: 10rem;
+    flex: 0 0 10rem;
+
+    &_xs {
+        width: 4.4rem;
+        height: 4.4rem;
+        flex: 0 0 4.4rem;
+    }
+
+    &_s {
+        width: 5.7rem;
+        height: 5.7rem;
+        flex: 0 0 5.7rem;
+    }
+      
+    &_l {
+        width: 17.4rem;
+        height: 17.4rem;
+        flex: 0 0 17.4rem;
+    }
+      
+    &_xl {
+        width: 34rem;
+        height: 34rem;
+        flex: 0 0 34rem;
+    }
+      
+    &_rounded {
+        border-radius: 50%;
+    }
+      
+    &_logo {
+        display: flex;
+    }
+}
+
+  
+  .m {
+    width: 10rem;
+    height: 10rem;
+    flex: 0 0 10rem;
+  }
+  
+  .l {
+    width: 17.4rem;
+    height: 17.4rem;
+    flex: 0 0 17.4rem;
+  }
+  
+  .xl {
+    width: 34rem;
+    height: 34rem;
+    flex: 0 0 34rem;
+  }
+  
+  .rounded {
+    border-radius: 50%;
+  }
+  
+  .logo {
+    display: flex;
+  }
