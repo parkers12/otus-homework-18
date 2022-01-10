@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/parkers12/otus-homework-18_.git"
+    "url": "git+https://github.com/parkers12/otus-homework-18.git"
   },
   "author": "Parker",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/parkers12/otus-homework-18_/issues"
+    "url": "https://github.com/parkers12/otus-homework-18/issues"
   },
-  "homepage": "https://github.com/parkers12/otus-homework-18_#readme",
+  "homepage": "https://github.com/parkers12/otus-homework-18#readme",
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@babel/eslint-parser": "^7.16.5",
