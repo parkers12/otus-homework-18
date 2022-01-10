@@ -4,11 +4,11 @@
   "description": "Component library development",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "yarn loki test",
     "start": "webpack serve --mode development --hot",
     "lint:fix": "eslint . --fix && prettier --write .",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook -o build"
   },
   "repository": {
     "type": "git",
