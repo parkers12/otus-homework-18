@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Img } from "react-image";
 import mixCn from "classnames";
-import userpic from "../images/userpic.jpg";
+import userpic from "../../images/userpic.jpg";
 import styles from "./userpic.module.scss";
 
 const classNameBySize = {

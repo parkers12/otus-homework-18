@@ -20,7 +20,13 @@
 }
 
 @include font-face($font-family, "Montserrat-Thin", $path-fonts, 100, normal);
-@include font-face($font-family, "Montserrat-ThinItalic", $path-fonts, 100, italic);
+@include font-face(
+  $font-family,
+  "Montserrat-ThinItalic",
+  $path-fonts,
+  100,
+  italic
+);
 @include font-face($font-family, "Montserrat-Light", $path-fonts, 300, normal);
 @include font-face(
   $font-family,
@@ -29,8 +35,20 @@
   300,
   italic
 );
-@include font-face($font-family, "Montserrat-Regular", $path-fonts, normal, normal);
-@include font-face($font-family, "Montserrat-Italic", $path-fonts, normal, italic);
+@include font-face(
+  $font-family,
+  "Montserrat-Regular",
+  $path-fonts,
+  normal,
+  normal
+);
+@include font-face(
+  $font-family,
+  "Montserrat-Italic",
+  $path-fonts,
+  normal,
+  italic
+);
 @include font-face($font-family, "Montserrat-Medium", $path-fonts, 500, normal);
 @include font-face(
   $font-family,
