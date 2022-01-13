@@ -7,16 +7,16 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: path.resolve(__dirname, "./src/index.js"),
+    main: path.resolve(__dirname, "./src/index.tsx"),
   },
   output: {
-    filename: "./js/bundle.js",
+    filename: "bundle.js",
     clean: true,
     path: path.resolve(__dirname, "public"),
     assetModuleFilename: "./fonts/Montserrat/[name][ext]",
   },
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".tsx", ".ts", ".js"],
   },
   stats: {
     errorDetails: true,
@@ -24,7 +24,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.[jt]sx?$/,
         exclude: /node_modules/,
         use: [
           {
