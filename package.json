@@ -6,6 +6,7 @@
   "scripts": {
     "test": "yarn loki test",
     "start": "webpack serve --mode development --hot",
+    "lint": "eslint . && prettier --check .",
     "lint:fix": "eslint . --fix && prettier --write .",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o build"
