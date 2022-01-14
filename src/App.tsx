@@ -1,6 +1,6 @@
 import React from "react";
 
-export function App(): JSX.Element | null {
+function App(): JSX.Element | null {
   return (
     <div>
       <h1>Hello world!</h1>
@@ -8,3 +8,5 @@ export function App(): JSX.Element | null {
     </div>
   );
 }
+
+export default App;
