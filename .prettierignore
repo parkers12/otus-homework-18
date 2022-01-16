@@ -1,6 +1,4 @@
 # Ignore artifacts:
 node_modules
 public
-build
-coverage
 README.md

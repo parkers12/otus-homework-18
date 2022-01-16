@@ -1,12 +1,14 @@
 import React from "react";
+import { Story } from "@storybook/react";
 import Userpic from "../components/Userpic";
+import { IUserpic } from "../components/Userpic/Userpic";
 
 export default {
   title: "Userpic",
   component: Userpic,
 };
 
-const Template = (args) => <Userpic {...args} />;
+const Template: Story<IUserpic> = (args) => <Userpic {...args} />;
 
 export const XSmall = Template.bind({});
 XSmall.args = {
@@ -53,4 +55,10 @@ export const Title = Template.bind({});
 Title.args = {
   className: "userpic",
   title: "Заголовок текст для фото",
+};
+
+export const WithLink = Template.bind({});
+WithLink.args = {
+  className: "userpic",
+  link: true,
 };

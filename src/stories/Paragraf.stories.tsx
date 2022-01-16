@@ -1,12 +1,14 @@
 import React from "react";
+import { Story } from "@storybook/react";
 import Paragraf from "../components/Paragraf";
+import { IParagraf } from "../components/Paragraf/Paragraf";
 
 export default {
   title: "Paragraf",
   component: Paragraf,
 };
 
-const Template = (args) => <Paragraf {...args} />;
+const Template: Story<IParagraf> = (args) => <Paragraf {...args} />;
 
 export const Main = Template.bind({});
 Main.args = {

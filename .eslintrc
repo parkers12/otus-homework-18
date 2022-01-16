@@ -3,18 +3,18 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["airbnb", "prettier"],
-  "parser": "@babel/eslint-parser",
-  "plugins": ["prettier"],
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": 12,
-    "requireConfigFile": false,
-    "sourceType": "module"
-  },
+  "extends": ["airbnb-typescript", "plugin:react/recommended", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["import", "@typescript-eslint", "prettier"],
   "rules": {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
     "prettier/prettier": ["error"],
     "max-len": [
       "error",
@@ -24,18 +24,27 @@
     ],
     "no-console": "off",
     "no-alert": "off",
+    "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
     "arrow-body-style": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/function-component-definition": [
-      2,
-      {
-        "namedComponents": "arrow-function",
-        "unnamedComponents": "arrow-function"
-      }
-    ],
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
-    "import/no-unresolved": [2, { "caseSensitive": false }]
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }]
+  },
+  "parserOptions": {
+    "project": "./tsconfig.eslint.json",
+    "createDefaultProgram": true,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "requireConfigFile": false,
+    "sourceType": "module"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

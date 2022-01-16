@@ -1,12 +1,14 @@
 import React from "react";
+import { Story } from "@storybook/react";
 import Heading from "../components/Heading";
+import { IHeading } from "../components/Heading/Heading";
 
 export default {
   title: "Heading",
   component: Heading,
 };
 
-const Template = (args) => <Heading {...args} />;
+const Template: Story<IHeading> = (args) => <Heading {...args} />;
 
 export const H1 = Template.bind({});
 H1.args = {

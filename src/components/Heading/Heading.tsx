@@ -1,7 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
 import mixCn from "classnames";
 import styles from "./heading.module.scss";
+
+export interface IHeading {
+  type: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  children: React.ReactNode;
+  className?: string;
+}
 
 const elements = {
   h1: "h1",
@@ -21,26 +26,19 @@ const classNameByView = {
   h6: styles.header_h6,
 };
 
-const Heading = ({ type, children, className, ...args }) => {
+const Heading: React.FC<IHeading> = ({
+  type = "h1",
+  children,
+  className,
+  ...args
+}: IHeading) => {
   const cn = mixCn(styles.header, className, classNameByView[type]);
-  const Tag = elements[type];
+  const Tag = elements[type] as keyof JSX.IntrinsicElements;
   return (
     <Tag className={cn} {...args}>
       {children}
     </Tag>
   );
-};
-
-Heading.propTypes = {
-  type: PropTypes.string,
-  className: PropTypes.string,
-  children: PropTypes.node,
-};
-
-Heading.defaultProps = {
-  type: "h1",
-  className: undefined,
-  children: undefined,
 };
 
 export default Heading;

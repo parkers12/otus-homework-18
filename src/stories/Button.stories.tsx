@@ -1,25 +1,35 @@
 import React from "react";
+import { Story } from "@storybook/react";
 import Button from "../components/Button";
+import { IButton } from "../components/Button/Button";
 
 export default {
   title: "Button",
   component: Button,
 };
 
-const Template = (args) => <Button {...args} />;
+const Template: Story<IButton> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = { className: "button", children: "Primary" };
+Primary.args = {
+  type: "button",
+  className: "button",
+  children: "Primary",
+  view: "primary",
+};
 
 export const PrimaryDisabled = Template.bind({});
 PrimaryDisabled.args = {
+  type: "button",
   className: "button",
   children: "Primary Disabled",
-  disabled: "disabled",
+  view: "primary",
+  isDisabled: true,
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
+  type: "button",
   className: "button",
   children: "Secondary",
   view: "secondary",
@@ -27,14 +37,16 @@ Secondary.args = {
 
 export const SecondaryDisabled = Template.bind({});
 SecondaryDisabled.args = {
+  type: "button",
   className: "button",
   children: "Secondary Disabled",
   view: "secondary",
-  disabled: "disabled",
+  isDisabled: true,
 };
 
 export const Text = Template.bind({});
 Text.args = {
+  type: "button",
   className: "button",
   children: "Text",
   view: "text",
@@ -42,8 +54,10 @@ Text.args = {
 
 export const TextDisabled = Template.bind({});
 TextDisabled.args = {
+  type: "button",
   className: "button",
-  children: "Text Disabled",
+  label: "Text Disabled",
+  children: "Text",
   view: "text",
-  disabled: "disabled",
+  isDisabled: true,
 };

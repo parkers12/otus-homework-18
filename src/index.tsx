@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <div>
+      <h1>Hello world!</h1>
+      <h2>This is Storybook</h2>
+    </div>
   </React.StrictMode>,
   document.getElementById("root")
 );

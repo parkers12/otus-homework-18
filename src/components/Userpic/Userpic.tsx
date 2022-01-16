@@ -1,59 +1,56 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Img } from "react-image";
 import mixCn from "classnames";
-import userpic from "../../images/userpic.jpg";
+import Avatar from "../../assets/images/userpic.jpg";
 import styles from "./userpic.module.scss";
+
+export interface IUserpic {
+  link?: boolean;
+  size?: "xs" | "s" | "m" | "l" | "xl";
+  rounded?: boolean;
+  alt?: string;
+  title?: string;
+  className?: string;
+}
 
 const classNameBySize = {
   xs: styles.userpic_xs,
   s: styles.userpic_s,
-  m: "",
+  m: styles.userpic,
   l: styles.userpic_l,
   xl: styles.userpic_xl,
 };
 
-const Userpic = ({ size, rounded, link, alt, title, className, ...args }) => {
+const Userpic: React.FC<IUserpic> = ({
+  size = "m",
+  rounded,
+  link,
+  alt,
+  title,
+  className,
+  ...args
+}) => {
   const cn = mixCn(
     styles.userpic,
     className,
     classNameBySize[size],
     rounded && styles.rounded
   );
+  const url = "http://ya.ru";
   const logoAlt = alt || "Alt текст для фото";
   const logoTitle = title || "Title текст для фото";
 
   const image = (
     <Img
-      src={userpic}
+      src={Avatar}
       alt={logoAlt}
       title={logoTitle}
-      size={size}
-      rounded={rounded}
       className={cn}
       {...args}
     />
   );
 
-  return link ? <a to={link}>{image}</a> : image;
-};
-
-Userpic.propTypes = {
-  link: PropTypes.bool,
-  size: PropTypes.oneOf(["xs", "s", "m", "l", "xl"]),
-  rounded: PropTypes.bool,
-  alt: PropTypes.string,
-  title: PropTypes.string,
-  className: PropTypes.string,
-};
-
-Userpic.defaultProps = {
-  link: false,
-  rounded: false,
-  size: "m",
-  alt: undefined,
-  title: undefined,
-  className: undefined,
+  return link ? <a href={url}>{image}</a> : image;
 };
 
 export default Userpic;

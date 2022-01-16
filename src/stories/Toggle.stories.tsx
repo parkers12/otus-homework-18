@@ -1,15 +1,17 @@
 import React from "react";
+import { Story } from "@storybook/react";
 import Heading from "../components/Heading";
 import Paragraf from "../components/Paragraf";
 import Space from "../components/Space";
 import Toggle from "../components/Toggle";
+import { IToggle } from "../components/Toggle/Toggle";
 
 export default {
   title: "Toggle",
   component: Toggle,
 };
 
-const Template = (args) => <Toggle {...args} />;
+const Template: Story<IToggle> = (args) => <Toggle {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -18,7 +20,7 @@ Default.args = {
     title: <Heading type="h5">Заголовок</Heading>,
     isButton: true,
   },
-  body: (
+  children: (
     <>
       <Paragraf>
         Свобода творит принцип восприятия, отрицая очевидное. Реальная власть

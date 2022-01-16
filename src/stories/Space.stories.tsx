@@ -1,12 +1,14 @@
 import React from "react";
+import { Story } from "@storybook/react";
 import Space from "../components/Space";
+import { ISpace } from "../components/Space/Space";
 
 export default {
   title: "Space",
   component: Space,
 };
 
-const Template = (args) => <Space {...args} />;
+const Template: Story<ISpace> = (args) => <Space {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
