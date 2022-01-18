@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es5" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+    "jsx": "react" /* Specify what JSX code is generated. */,
+    "module": "commonjs" /* Specify what module code is generated. */,
+    "esModuleInterop": true, // Отключить импорт пространств имен.
+    "forceConsistentCasingInFileNames": true, // Запретить ссылки на один и тот же файл, написанный в другом регистре.
+    "strict": false, // Включить все опции строгой проверки типов.
+    "skipLibCheck": true, // Пропустить проверку во типов всех файлах объявлений.
+    "moduleResolution": "node", // Разрешение модулей в стиле Node.js
+    "allowSyntheticDefaultImports": true, // Разрешить предустановленные импорты из модулей без предустановленного экспорта.
+    "sourceMap": true, // Сгенерировать соответствующий файл .map
+    "declaration": true, // Сгенерировать соответствующий файл .d.ts
+    "allowJs": true, // Разрешить компиляцию JS-файлов.
+    "noEmit": true, // Не отправлять вывод (то есть не компилировать код, а только проверить типы).
+    "baseUrl": "./src",
+    "paths": {
+      "types/*": ["./types/*"]
+    }
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": { "jsx": true },
+    "ecmaVersion": 8,
+    "sourceType": "module"
+  },
+  "include": ["src/**/*", "types/*.d.ts"],
+  "exclude": ["node_modules/**/*", "public/**/*"]
+}

@@ -1,0 +1,149 @@
+{
+  "name": "storybook",
+  "version": "1.0.0",
+  "description": "Component library development",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run build-storybook && npx loki --requireReference --reactUri file:./build",
+    "start": "webpack serve --mode development --hot",
+    "lint": "eslint . && prettier --check .",
+    "lint:fix": "eslint . --fix && prettier --write .",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook -o build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parkers12/otus-homework-18.git"
+  },
+  "author": "Parker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parkers12/otus-homework-18/issues"
+  },
+  "homepage": "https://github.com/parkers12/otus-homework-18#readme",
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/eslint-parser": "^7.16.5",
+    "@babel/plugin-transform-runtime": "^7.16.8",
+    "@babel/preset-env": "^7.16.7",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/builder-webpack5": "^6.4.9",
+    "@storybook/manager-webpack5": "^6.4.9",
+    "@storybook/node-logger": "^6.4.9",
+    "@storybook/preset-create-react-app": "^4.0.0",
+    "@types/eslint": "^8.2.2",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.9.1",
+    "autoprefixer": "^10.4.1",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.3",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-typescript": "^7.0.0-alpha.19",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^10.2.0",
+    "css-loader": "^6.5.1",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^5.0.14",
+    "eslint": "^8.6.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^16.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-webpack-plugin": "^3.1.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "lint-staged": "^12.1.5",
+    "loki": "^0.28.1",
+    "mini-css-extract-plugin": "^2.4.6",
+    "node-sass": "^7.0.1",
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.1.0",
+    "postcss-loader": "^6.2.1",
+    "postcss-preset-env": "^7.2.0",
+    "prettier": "^2.5.1",
+    "sass": "^1.46.0",
+    "sass-loader": "^12.4.0",
+    "style-loader": "^3.3.1",
+    "styled-components": "^5.3.3",
+    "styled-system": "^5.1.5",
+    "typescript": "^4.5.4",
+    "typescript-plugin-css-modules": "^3.4.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.2"
+  },
+  "dependencies": {
+    "@storybook/react": "^6.4.9",
+    "classnames": "^2.3.1",
+    "prop-types": "^15.8.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-image": "^4.0.3",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "5.0.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix",
+    "*.{js,jsx,css,scss,md,json,html}": "prettier --write"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.docker",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      }
+    }
+  },
+  "files": [
+    "*.md",
+    "public/",
+    "*.d.ts",
+    "src/styles/",
+    "src/fonts/"
+  ]
+}

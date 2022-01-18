@@ -1,0 +1,118 @@
+@use "../../assets/styles/styles" as *;
+
+.button {
+  appearance: initial;
+  align-items: center;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  justify-content: center;
+  outline: none;
+  pointer-events: auto;
+  text-decoration: none;
+  text-align: center;
+  user-select: none;
+  vertical-align: middle;
+  nav-index: 1;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+    text-decoration: none;
+  }
+
+  & + & {
+    margin-left: 2rem;
+  }
+
+  // Button default type
+  &_primary {
+    background-color: $brand-dark-back;
+    border-radius: $radius;
+    font-size: $small-font-size;
+    font-weight: $main-font-weight;
+    color: $base-light-text;
+    padding: 0 $gap * 1.5;
+    height: $controlHeight;
+    min-width: $controlHeight;
+    line-height: $controlHeight;
+
+    &:hover,
+    &:focus {
+      background-color: lighten($brand-dark-back, 10%);
+    }
+
+    &:active {
+      background-color: lighten($brand-dark-back, 3%);
+    }
+
+    &:disabled {
+      background: $neutral-dark-back;
+      cursor: default;
+    }
+  }
+
+  // Button secondary type
+  &_secondary {
+    background-color: transparent;
+    border-radius: $radius;
+    font-size: $small-font-size;
+    font-weight: $main-font-weight;
+    color: $brand-dark-back;
+    padding: 0 $gap * 1.5;
+    height: $controlHeight;
+    min-width: $controlHeight;
+    line-height: $controlHeight;
+    border: 0.1rem solid;
+
+    &:hover,
+    &:focus {
+      border-color: lighten($brand-dark-back, 10%);
+      color: lighten($brand-dark-back, 10%);
+    }
+
+    &:active {
+      border-color: lighten($brand-dark-back, 3%);
+      color: lighten($brand-dark-back, 3%);
+    }
+
+    &:disabled {
+      border-color: $neutral-dark-back;
+      color: $neutral-dark-back;
+      cursor: default;
+    }
+  }
+
+  &_text {
+    background-color: transparent;
+    border-radius: 0;
+    font-size: $small-font-size;
+    font-weight: $main-font-weight;
+    color: $brand-dark-back;
+    padding: 0;
+    height: auto;
+    min-width: auto;
+    line-height: auto;
+    border: 0;
+
+    &:hover,
+    &:focus {
+      color: lighten($brand-dark-back, 10%);
+    }
+
+    &:active {
+      color: lighten($brand-dark-back, 3%);
+    }
+
+    &:disabled {
+      color: $neutral-dark-back;
+      cursor: default;
+    }
+  }
+}

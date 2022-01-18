@@ -1,0 +1,33 @@
+@use "../../assets/styles/styles" as *;
+
+.space {
+  border: 0;
+  margin: 2rem 0;
+  height: 0.3rem;
+  width: 100%;
+  background-color: LightGray;
+
+  &_discharged {
+    margin: 3rem 0;
+  }
+
+  &_compressed {
+    margin: 1.4rem 0;
+  }
+
+  &_thin {
+    height: 0.1rem;
+  }
+
+  &_thick {
+    height: 0.5rem;
+  }
+
+  &_blue {
+    background-color: DodgerBlue;
+  }
+
+  &_red {
+    background-color: Tomato;
+  }
+}

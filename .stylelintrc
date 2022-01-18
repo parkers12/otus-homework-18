@@ -1,0 +1,12 @@
+{
+  "extends": ["stylelint-prettier/recommended"],
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "no-duplicate-selectors": true,
+    "length-zero-no-unit": true,
+    "rule-empty-line-before": [
+      "always",
+      { "ignore": ["first-nested"], "except": ["after-single-line-comment"] }
+    ]
+  }
+}
